@@ -1,35 +1,40 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-
+    import { onDestroy, onMount } from "svelte";
     let hp1 = 100;
     let hp2 = 100;
 
+    function onKeyPress(event: KeyboardEvent) {
+        event.preventDefault();
+        switch (event.key) {
+            case "a":
+                hp1 -= 12;
+                break;
+            case "q":
+                hp1 -= 50;
+                break;
+            case "d":
+                hp2 -= 12;
+                break;
+            case "e":
+                hp2 -= 50;
+                break;
+            case "r":
+                hp1 = 100;
+                hp2 = 100;
+                break;
+            default:
+                break;
+        }
+        if (hp1 < 10) hp1 = 1;
+        if (hp2 < 10) hp2 = 1;
+    }
+
     onMount(() => {
-        window.addEventListener("keydown", (event) => {
-            // event.preventDefault()
-            switch (event.key) {
-                case "a":
-                    hp1 -= 12;
-                    break;
-                case "q":
-                    hp1 -= 50;
-                    break;
-                case "d":
-                    hp2 -= 12;
-                    break;
-                case "e":
-                    hp2 -= 50;
-                    break;
-                case "r":
-                    hp1 = 100;
-                    hp2 = 100;
-                    break;
-                default:
-                    break;
-            }
-            if (hp1 < 10) hp1 = 1;
-            if (hp2 < 10) hp2 = 1;
-        });
+        window.addEventListener("keydown", onKeyPress);
+    });
+
+    onDestroy(() => {
+        window.removeEventListener("keydown", onKeyPress);
     });
 </script>
 
@@ -40,7 +45,7 @@
         </div>
         <div>
             <div class="hpbar">
-                <div style="width: {hp1}%;"/>
+                <div style="width: {hp1}%;" />
             </div>
             <h3 class="name">King of พยานาค</h3>
         </div>
@@ -52,7 +57,7 @@
         </div>
         <div>
             <div class="hpbar">
-                <div style="width: {hp2}%;"/>
+                <div style="width: {hp2}%;" />
             </div>
             <h3 class="name">ท้าวผาแดง</h3>
         </div>
