@@ -1,8 +1,8 @@
 <script lang="ts">
     import { onMount } from "svelte";
 
-    $: hp1 = 100;
-    $: hp2 = 100;
+    let hp1 = 100;
+    let hp2 = 100;
 
     onMount(() => {
         window.addEventListener("keydown", (event) => {
