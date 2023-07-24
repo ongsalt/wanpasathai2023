@@ -72,6 +72,7 @@
 
     .left,
     .right {
+        top: 3vh;
         left: -18px;
         display: flex;
         position: fixed;

@@ -1,13 +1,14 @@
 <div class="centered">
-    <h2  class="pm-0">
-        Random bullshit
-    </h2>
-    <p>
-        สำหรับงานวันภาษาไทย 2023 จภ.ตรัง 6/5  
-    </p>
+    <h2 class="pm-0">Random bullshit</h2>
+    <p>สำหรับงานวันภาษาไทย 2023 จภ.ตรัง 6/5</p>
     <nav>
         <a href="/hpbar"> HP bar </a>
-        <a href="/soundpad"> Soundpad </a>
+        <a
+            href="https://www.101soundboards.com/boards/10452-lightsaber-sounds-star-wars"
+        >
+            Lightsaber SFX
+        </a>
+        <a href="https://docs.google.com/presentation/d/1JqT0af4IgAU_qt9eBwhiLmMBEhT7Y43x86QY1TsZ23M/edit?usp=sharing"> ฉาก </a>
     </nav>
 </div>
 
