@@ -1,0 +1,19 @@
+{
+  "name": "wanpasathai2023",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "startaudiocontext": "^1.2.1",
+    "tone": "^0.11.11",
+    "vec2": "^1.6.1"
+  }
+}
