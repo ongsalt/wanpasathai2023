@@ -1,45 +1,56 @@
 <script lang="ts">
     import { onDestroy, onMount } from "svelte";
+    import { browser } from "$app/environment";
+
     let hp1 = 100;
     let hp2 = 100;
+    let popup = false;
 
     function onKeyPress(event: KeyboardEvent) {
         event.preventDefault();
         switch (event.key) {
             case "a":
-                hp1 -= 12;
+                hp1 -= 5;
                 break;
             case "q":
-                hp1 -= 50;
+                hp1 -= 15;
                 break;
             case "d":
-                hp2 -= 12;
+                hp2 -= 5;
                 break;
             case "e":
-                hp2 -= 50;
+                hp2 -= 15;
                 break;
             case "r":
                 hp1 = 100;
                 hp2 = 100;
+                popup = false;
                 break;
             default:
                 break;
         }
-        if (hp1 < 10) hp1 = 1;
-        if (hp2 < 10) hp2 = 1;
+        if (hp1 < 10 || hp2 < 10) {
+            hp1 = 1;
+            hp2 = 1;
+            popup = true;
+        }
     }
 
     onMount(() => {
-        window.addEventListener("keydown", onKeyPress);
+        if (browser) {
+            window.addEventListener("keydown", onKeyPress);
+        }
     });
 
     onDestroy(() => {
-        window.removeEventListener("keydown", onKeyPress);
+        if (browser) {
+            window.removeEventListener("keydown", onKeyPress);
+        }
     });
 </script>
 
 <div class="bg">
-    <div class="left">
+    <div class="left {popup ? "grayscale" : ''}">
         <div class="rhombus">
             <img src="/image/wave.png" alt="" />
         </div>
@@ -51,7 +62,7 @@
         </div>
     </div>
     <h1 class="vs">VS</h1>
-    <div class="right">
+    <div class="right {popup ? "grayscale" : ''}">
         <div class="rhombus">
             <img src="/image/tee.png" alt="" />
         </div>
@@ -62,6 +73,12 @@
             <h3 class="name">ท้าวผาแดง</h3>
         </div>
     </div>
+    {#if popup}
+        <div class="popup">
+            <h1 class="pm-0">GAME OVER</h1>
+            <p class="">No one win</p>
+        </div>
+    {/if}
 </div>
 
 <style>
@@ -191,18 +208,21 @@
         margin-right: auto;
     }
 
-    #popup {
+    .popup {
         position: fixed;
+        padding: 0;
+        margin: 0;
         width: 100vw;
         height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         transition: all 0.4s;
         animation: scale 0.3s alternate infinite linear;
     }
-
-    #popup h1 {
+    
+    .popup h1 {
         font-size: 5rem;
     }
 
