@@ -2,24 +2,55 @@
     import { onDestroy, onMount } from "svelte";
     import { browser } from "$app/environment";
 
+    import punch1 from "$lib/assets/punch1.mp3";
+    import punch2 from "$lib/assets/punch2.mp3";
+    import punch3 from "$lib/assets/punch3.mp3";
+    import punch4 from "$lib/assets/punch4.mp3";
+    import punch5 from "$lib/assets/punch5.mp3";
+    import buryTheLight from "$lib/assets/bury_the_light.mp3"
+
+    const punchEffectsFilename = [punch1, punch2, punch3, punch4, punch5]
+    const punchEffects: HTMLAudioElement[] = []
+
     let hp1 = 100;
     let hp2 = 100;
     let popup = false;
+    let isBGMPlayed = false
+    let bgm: HTMLAudioElement
+
+    function playHitSound() {
+        const targetIndex = Math.round(Math.random() * (punchEffects.length - 1));
+        console.log(targetIndex)
+        const audio = punchEffects[targetIndex];
+        audio.play();
+    }
+
+    function playBGM() {
+        if (isBGMPlayed) return
+        isBGMPlayed = true
+        bgm = new Audio(buryTheLight)
+        bgm.volume = .4
+        bgm.play()
+    }
 
     function onKeyPress(event: KeyboardEvent) {
         event.preventDefault();
         switch (event.key) {
             case "a":
                 hp1 -= 5;
+                playHitSound();
                 break;
             case "q":
                 hp1 -= 15;
+                playHitSound();
                 break;
             case "d":
                 hp2 -= 5;
+                playHitSound();
                 break;
             case "e":
                 hp2 -= 15;
+                playHitSound();
                 break;
             case "r":
                 hp1 = 100;
@@ -39,18 +70,20 @@
     onMount(() => {
         if (browser) {
             window.addEventListener("keydown", onKeyPress);
+            punchEffects.push(...punchEffectsFilename.map(it => new Audio(it)))
         }
     });
 
     onDestroy(() => {
         if (browser) {
             window.removeEventListener("keydown", onKeyPress);
+            bgm.pause()
         }
     });
 </script>
 
-<div class="bg">
-    <div class="left {popup ? "grayscale" : ''}">
+<div class="bg" on:click={playBGM}>
+    <div class="left {popup ? 'grayscale' : ''}">
         <div class="rhombus">
             <img src="/image/wave.png" alt="" />
         </div>
@@ -62,7 +95,7 @@
         </div>
     </div>
     <h1 class="vs">VS</h1>
-    <div class="right {popup ? "grayscale" : ''}">
+    <div class="right {popup ? 'grayscale' : ''}">
         <div class="rhombus">
             <img src="/image/tee.png" alt="" />
         </div>
@@ -221,7 +254,7 @@
         transition: all 0.4s;
         animation: scale 0.3s alternate infinite linear;
     }
-    
+
     .popup h1 {
         font-size: 5rem;
     }
