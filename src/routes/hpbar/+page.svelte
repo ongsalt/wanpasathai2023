@@ -135,9 +135,11 @@
 
 <style>
   .bg {
+    color: black;
+    text-shadow: 0px 0px 12px white;
     background-color: #00ff00;
-    /* background-image: url("/image/original.png"); */
-    /* background-size: cover; */
+    background-image: url("/image/SFV_Sagat27s_Court.PNG.webp");
+    background-size: cover;
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -147,7 +149,7 @@
   .left,
   .right {
     top: 3vh;
-    left: -18px;
+    left: -25px;
     display: flex;
     position: fixed;
     align-items: flex-end;
@@ -156,7 +158,7 @@
 
   .rhombus {
     /* margin-left: -1vw; */
-    height: 12vh;
+    height: 18vh;
     width: 11vw;
     transform: skew(-20deg);
     overflow: hidden;
@@ -173,7 +175,7 @@
   }
 
   .rhombus img {
-    height: 12vh;
+    height: 18vh;
     transform: skew(20deg);
     width: 11vw;
     object-fit: cover;
@@ -181,7 +183,7 @@
   }
 
   .hpbar {
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
     margin-left: 0vw;
     height: 3vh;
     width: 35.3vw;
@@ -196,14 +198,14 @@
     padding: 0;
     margin: 0;
     /* width: fit-content; */
-    margin-bottom: 1vh;
+    margin-bottom: 4vh;
     margin-left: 2vh;
     margin-right: 2vh;
   }
 
   .right {
     left: unset;
-    right: -18px;
+    right: -25px;
     flex-direction: row-reverse;
     text-align: end;
     /* margin-right: -20px; */
@@ -256,6 +258,7 @@
     right: 0;
     position: fixed;
     text-align: center;
+    margin-top: 6vh;
     margin-left: auto;
     margin-right: auto;
   }
@@ -295,4 +298,5 @@
     opacity: 0;
     /* scale: .9; */
   }
+
 </style>
