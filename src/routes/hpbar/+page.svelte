@@ -7,7 +7,7 @@
   import punch3 from "$lib/assets/punch3.mp3";
   import punch4 from "$lib/assets/punch4.mp3";
   import punch5 from "$lib/assets/punch5.mp3";
-  import buryTheLight from "$lib/assets/bury_the_light.mp3";
+  import buryTheLight from "$lib/assets/fight.mp3";
 
   const punchEffectsFilename = [punch1, punch2, punch3, punch4, punch5];
   const punchEffects: HTMLAudioElement[] = [];
@@ -26,11 +26,16 @@
   }
 
   function playBGM() {
-    if (isBGMPlayed) return;
-    isBGMPlayed = true;
-    bgm = new Audio(buryTheLight);
-    bgm.volume = 0.4;
-    bgm.play();
+    if (!bgm) {
+      bgm = new Audio(buryTheLight);
+      bgm.volume = 0.4;
+    }
+    if (isBGMPlayed) {
+      bgm.pause();
+    } else {
+      bgm.play();
+    }
+    isBGMPlayed = !isBGMPlayed;
   }
 
   function onKeyPress(event: KeyboardEvent) {
@@ -65,6 +70,10 @@
         popup = false;
         event.preventDefault();
         break;
+      case " ":
+        console.log("Spacebar")
+        playBGM()
+        break
       default:
         break;
     }
@@ -90,7 +99,7 @@
   });
 </script>
 
-<div class="bg" on:click={playBGM}>
+<div class="bg">
   <div class="left {popup ? 'grayscale' : ''}">
     <div class="rhombus">
       <img src="/image/wave.png" alt="" />
@@ -117,7 +126,7 @@
   {#if popup}
     <div class="popup">
       <h1 class="pm-0">GAME OVER</h1>
-      <p class="">No one win</p>
+      <h2 class="">No one win</h2>
     </div>
   {/if}
 </div>
