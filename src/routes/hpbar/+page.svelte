@@ -100,6 +100,7 @@
 </script>
 
 <div class="bg">
+  
   <div class="left {popup ? 'grayscale' : ''}">
     <div class="rhombus">
       <img src="/image/wave.png" alt="" />
@@ -123,6 +124,7 @@
       <h3 class="name">ท้าวผาแดง</h3>
     </div>
   </div>
+
   {#if popup}
     <div class="popup">
       <h1 class="pm-0">GAME OVER</h1>
