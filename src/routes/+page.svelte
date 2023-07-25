@@ -1,6 +1,6 @@
 <div class="centered">
-    <h2 class="pm-0">Random bullshit</h2>
-    <p>สำหรับงานวันภาษาไทยจภ.ตรัง 2023 6/5</p>
+    <h2 class="pm-0">ซาวด์แพดกากๆ</h2>
+    <p>สำหรับงานวันภาษาไทยจภ.ตรัง ของ ม.6/5 ปี 2023  </p>
     <nav>
         <a href="/hpbar"> HP bar </a>
         <a

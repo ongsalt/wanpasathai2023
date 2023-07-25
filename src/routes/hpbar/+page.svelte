@@ -77,7 +77,7 @@
     onDestroy(() => {
         if (browser) {
             window.removeEventListener("keydown", onKeyPress);
-            bgm.pause()
+            bgm?.pause()
         }
     });
 </script>
