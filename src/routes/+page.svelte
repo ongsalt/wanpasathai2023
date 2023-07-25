@@ -9,6 +9,7 @@
             Lightsaber SFX
         </a>
         <a href="https://docs.google.com/presentation/d/1JqT0af4IgAU_qt9eBwhiLmMBEhT7Y43x86QY1TsZ23M/edit?usp=sharing"> ฉาก </a>
+        <a href="https://docs.google.com/document/d/1PdDN6AEQxjZWQ7MB4rEs5H1CR_uBqR0n61jhdMODACo/edit"> บท </a>
     </nav>
 </div>
 
