@@ -135,7 +135,7 @@
 
 <style>
   .bg {
-    color: black;
+    color: white;
     text-shadow: 0px 0px 12px white;
     background-color: #00ff00;
     background-image: url("/image/SFV_Sagat27s_Court.PNG.webp");
@@ -190,17 +190,20 @@
     transform: skew(36deg);
     background-color: #eac6c4;
     border: 2px solid white;
-    box-shadow: 0px 0px 8px black;
+    box-shadow: 0px 0px 12px black;
     display: flex;
   }
 
   .name {
+    font-size: 2.5rem;
+    font-weight: 600;
     padding: 0;
     margin: 0;
     /* width: fit-content; */
-    margin-bottom: 4vh;
+    margin-bottom: 2vh;
     margin-left: 2vh;
     margin-right: 2vh;
+    text-shadow: 0px 0px 12px black;
   }
 
   .right {
@@ -261,6 +264,8 @@
     margin-top: 6vh;
     margin-left: auto;
     margin-right: auto;
+    font-size: 2rem;
+    text-shadow: 0px 0px 12px black;
   }
 
   .popup {
