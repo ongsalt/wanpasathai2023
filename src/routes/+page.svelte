@@ -3,6 +3,7 @@
     <p>สำหรับงานวันภาษาไทยจภ.ตรัง ของ ม.6/5 ปี 2023  </p>
     <nav>
         <a href="/hpbar"> HP bar </a>
+        <a href="/hpbar/greenscreen"> HP bar(greenscreen) </a>
         <a
             href="https://www.101soundboards.com/boards/10452-lightsaber-sounds-star-wars"
         >
